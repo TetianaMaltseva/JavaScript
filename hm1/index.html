@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div{
+            font-size: 45px;
+        }
+    </style>
+    <div id="lastname"></div>
+   
+    <script>
+        var stringVar ="string"
+        var numberBig = BigInt(23);
+        var numberVar = 15;
+        var price = 15.50;
+        var favoriteColor = null;
+
+        let city = "Berlin";
+        let temperature = 0;
+        let isRaining = false;
+        let variables = `Var, let, const - переменные. Var - устаревший способ записи, переменную можно менять,
+         объявлять снова, работает до объявления. 
+         Let современный способ записи. Можно менять, нельзя объявить снова,  работает после объявления.
+         Const - постоянное значение, нельзя менять, нельзя объявить снова, работает после объявления.
+         Декларации это объявление переменной без значения. 
+         Инциализации это присваивание значение переменной . `;
+
+         const pi = 3.14;
+         const country ="Ukraine";
+         const maxUsers = 1000;
+         const isPrasident = false;
+         const isGirl = true; 
+
+         console.log(pi);
+         document.write('<div>' + variables + '</div>');
+         alert(country + ' is better!');
+         confirm('You are ' + maxUsers + ' user.');
+
+         let name = prompt('What is your name?');
+
+         if(name){
+            document.getElementById('lastname').innerHTML = 'Hallo, your name is ' + name;
+         }else{
+            document.getElementById('lastname').innerHTML = 'You did not your name!' ;
+         }
+
+
+
+
+
+        
+
+    </script>
+</body>
+</html>
