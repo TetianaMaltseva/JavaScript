@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hm2</title>
+</head>
+<body>
+
+    <script>
+        // 1
+        let x = 222;
+        let x1 = String(x);
+        console.log(x, typeof x1);
+
+        let x2 = Boolean(x);
+        console.log(x2, typeof x2);
+
+        let x3 = Boolean(x1);
+        console.log(x3, typeof x3);
+
+        let x4 = undefined;
+        let x5 = Boolean(x4);
+        console.log(x5, typeof x5);
+
+        let x6 = 0
+        let x7 = Boolean(x6);
+        console.log(x7, typeof x7);
+        // 2
+        const howOld = confirm('Please enter your age');
+
+        if(howOld === true){
+            console.log('Your confirmed poput!')
+        }else{
+            console.log('Confirm Error!')
+        }
+        // 3
+        howOld === true 
+        ? console.log('Your confirmed poput!')
+        : console.log('Confirm Error!');
+        // 4
+        const age = prompt('Please enter your age'); 
+        const ageNumber = Number(age);  
+        
+        if(!isNaN(ageNumber)){
+            if(ageNumber >= 1 && ageNumber < 12){
+                console.log('You are child');
+            }else if(ageNumber >= 12 && ageNumber < 18){
+                console.log('You are teeneger');
+            }else if(ageNumber >= 18 && ageNumber < 60){
+                console.log('You are adult person');
+            }else{
+                console.log('You are so old');
+            }
+        }else{
+            console.log('Please enter a valid number!')
+        }
+        // 5
+
+         const name = prompt('Please enter your name').trim(); // убираем пробелы
+       
+        switch(name){
+            case "Admin": 
+                console.log(' I have full access');
+            break;
+            case "Student":
+                 console.log(' I am student');
+            break;
+            case "Teacher": 
+                console.log(' I am teacher');
+            break;
+            case "Young": 
+                console.log(' I young and ready to party');
+            break;
+            default: console.log('You entered own name');
+        }
+        // 6
+        const name1 = prompt('Please enter your name').trim(); 
+        const age1 = Number(prompt('Please enter your age'));
+
+        if(name1 === "Admin" || name1 === "Moderator"){
+            console.log('You have access!');
+        }else{
+            console.log('You don`t have access!'); 
+        }
+
+        if(name1 !== "Guest"){ //не равно строгое
+            console.log('You`re not a guest !');
+        }else{
+            console.log('You are guest!'); 
+        }
+
+        if(age1 !== "18"){ //не равно без учета типа
+            console.log('You`re not 18 years old !');
+        }else{
+            console.log('You are 18 years old!'); 
+        }
+
+        if(age1 == "18" && age1 >= 18){ //равно без учета типа
+            console.log('You are of legal age!');
+        }else{
+            console.log('You`re not of legal age!'); 
+        }
+
+
+
+
+       
+
+
+
+
+
+        
+
+
+
+
+    </script>
+</body>
+</html>
