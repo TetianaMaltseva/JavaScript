@@ -27,10 +27,11 @@ let lenghtStr1 = (str1,str2) => {
 console.log(lenghtStr1('absjj','asd'));
 // 2. Напишіть функцію, яка переводить у верхній регістр перший символ переданого рядка.
 // (toUpperCase, slice)
-let ucFirst = (str) => {
-     return str.at(0).toUpperCase() + str.slice(1,3);
+function ucFirst(str) {
+   if (!str) return str;
+   return str[0].toUpperCase() + str.slice(1);
    };
-   console.log(ucFirst("abc"));
+   console.log(ucFirst("abcd"));
 // 3. Напишіть функцію, яка підраховує кількість голосних
 // літер у переданому рядку. (створити рядок з голосними літерами і шукати в ньому, includes) 
 
@@ -64,13 +65,56 @@ console.log(identifySpam('Приходьте ми поряд!'));
 // рядок та його максимальну довжину. Якщо довжина рядка більша, ніж максимальна, необхідно відкинути зайві
 // символи, додавши замість них трикрапку. 
 // Наприклад: truncate("Hello, world!", 8) має повернути "Hello...".(length, slice)
-
+function truncString(str,maxlength){
+  if(str.length > maxlength){
+    return str.slice(0,maxlength - 1) + "...";
+  }else{
+    return str;
+  }
+}
+console.log(truncString('Hello Alex', 5));
 // 6. Напишіть функцію, яка перевіряє, чи є переданий рядок
 // паліндромом. (split,reverse,join)
+function palindrome(str){
+  let reversStr = str.split('').reverse().join('');
+  return str === reversStr;
+}
+console.log(palindrome('madam'));
+console.log(palindrome('made'));
 // 7. Напишіть функцію, яка підраховує кількість слів у реченні. (trim,split, length)
+function countWords(sent){
+ return sent.trim().split(/\s+/).length;
+  }
+console.log(countWords('Hello I am Alex!'));
 // 8. Напишіть функцію, яка повертає найдовше слово з речення.(split,reduce)
+ // console.log(prices.reduce((acc, price) => acc * price, 1));
+
+function returnsLangWord(str){
+   return str.split(/\s+/).reduce((acc,word) => word.length > acc.length ? word : acc,'');
+}
+ console.log(returnsLangWord('Hello I am Alex!'));
 // 9. Напишіть функцію, яка підраховує середню довжину
 // слова у реченні.(split,reduce)
+function averadeValue(str){
+  return str.split(/\s+/).reduce((acc,word,_,arr) => acc + word.length / arr.length,0);
+}
+console.log(averadeValue('Hello I am Alex!'));
 // 10. Напишіть функцію, яка приймає рядок і символ і виводить
 // індекси, за якими знаходиться цей символ у рядку. Також
 // виведіть, скільки разів зустрічається цей символ у рядку(psuh,length)
+// let pos = -1;
+// while ((pos = str.indexOf(target, pos + 1)) != -1) {
+//   alert( pos );
+// 
+
+function sumSimbols(str,num){
+  let simbol = [];
+  let index = str.indexOf(num);
+
+  while(index !== -1){
+    simbol.push(index);
+    index = str.indexOf(num,index + 1);
+  }
+  console.log(`Index: ${simbol} , nummer of occurrences: ${simbol.length} `);
+}
+sumSimbols('Alex!!!!','!');
