@@ -53,25 +53,68 @@ function checkIsPerfectNumber(p){
       sum += i;
     }
   }
-  return  sum === p ? `${p} - is a perfect number.` : `${p} - is not a perfect number.`;
+  return  sum === p // ? `${p} - is a perfect number.` : `${p} - is not a perfect number.`;
 }
-console.log(checkIsPerfectNumber(6));
+console.log(checkIsPerfectNumber(28));
 console.log(checkIsPerfectNumber(8));
 // 6. Напишіть функцію, яка приймає мінімальне і максимальне
 // значення для діапазону і виводить ті числа з діапазону, які
 // є досконалими. Використовуйте написану раніше функцію,
 // щоб перевірити число на досконалість.
-// 7. Напишіть функцію, яка приймає час (години, хвилини,
-// секунди) і виводить його на екран у форматі «година:
-// 2
-// Домашнє завдання 4
-// хвилини:секунди». Якщо при виклику функції хвилини
-// та/або секунди не були передані, виводити їх як 00.
+function checkPerfNumInRange(min, max){
+  let range =[];
+  for(let i = min; i <= max; i++){
+    if(checkIsPerfectNumber(i)){
+      range.push(i);
+    }
+  }
+return range;
+}
+console.log(checkPerfNumInRange(1,500));
+// 7.Напишіть функцію, яка приймає час (години, хвилини, секунди) і виводить його на екран у 
+// форматі «година:  хвилини:секунди».
+// Якщо при виклику функції хвилини та/або секунди не були передані, виводити їх як 00.
+function showTime(hours, minutes = 0,seconds = 0){
+  let date = new Date();
+   date.setHours(hours);
+   date.setMinutes(minutes);
+   date.setSeconds(seconds);
+   return date.toLocaleTimeString('en-GB');
+}
+console.log(showTime(5,10,5));
+console.log(showTime(5,10));
+console.log(showTime(5));
 // 8. Напишіть функцію, яка приймає години, хвилини та секунди і повертає цей час у секунди.
-// 9. Напищіть функцію, яка приймає кількість секунд, переводить їх у години, хвилини та секунди і повертає у вигляді
-// рядка «година:хвилини:секунди».
-// 10. Напишіть функцію, яка підраховує різницю між датами. Функція приймає 6 параметрів, що описують 2 дати,
+function showTime2(hours, minutes,seconds){
+   return hours * 3600 + minutes * 60 + seconds;
+}
+console.log(showTime2 (1,10,5));
+
+// 9. Напищіть функцію, яка приймає кількість секунд, переводить їх у години, хвилини та секунди
+//  і повертає у вигляді рядка «година:хвилини:секунди».
+function showReturnTime(seconds){
+  let hours = Math.floor(seconds / 3600);
+  let minutes = Math.floor((seconds % 3600) / 60);
+  let second = seconds % 60;
+  return `${hours}:${minutes.toString().padStart(2, "0")}:${second.toString().padStart(2, "0")} `;
+}
+console.log(showReturnTime(4205));
+// 10. Напишіть функцію, яка підраховує різницю між датами.
+//  Функція приймає 6 параметрів, що описують 2 дати,
 // і повертає результат у вигляді рядка «година:хвилини:
 // секунди». Під час виконання завдання використовуйте
-// функції з попередніх 2 завдань: спочатку обидві дати переведіть у секунди, дізнайтеся різницю в секундах, а потім
+// функції з попередніх 2 завдань: спочатку обидві дати переведіть у секунди,
+//  дізнайтеся різницю в секундах, а потім
 // різницю переведіть назад у «година:хвилини:секунди».
+function diffDate(h1,m1,s1,h2,m2,s2){
+
+  let date1 = showTime2(h1,m1,s1);
+  //console.log(date1)
+  let date2 = showTime2(h2,m2,s2);
+  //console.log(date2)
+
+  let result = Math.abs(date1 - date2);
+  return showReturnTime(result);
+ 
+}
+console.log(diffDate(2,23,45,1,23,45));
