@@ -13,7 +13,8 @@
 let colors = ['red', 'green', 'blue'];
 console.log(colors.at(-1));
 colors[2] = 'yelow';
-console.log(colors)
+console.log(colors);
+
 // 2) 
 // Створіть масив cars з елементами "Ford","Mazda","Renault", "Volvo"
 // Додайте "BMW" в кінець масиву.

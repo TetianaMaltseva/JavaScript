@@ -41,7 +41,7 @@ function ucFirst(str) {
 
      for (let letter of letters) {
       if(vowels.includes(letter)){
-        count += 1;
+        count ++;
       } 
      }
      return count;
@@ -61,6 +61,8 @@ function identifySpam(str) {
 }
 console.log(identifySpam('Tільки Сьогодні 100% Безкоштовно, приходьте'));
 console.log(identifySpam('Приходьте ми поряд!'));
+
+//2) str.toLowerCase().includes(spam.toLowerCase()))
 // 5. Напишіть функцію скорочення рядка. Функція приймає
 // рядок та його максимальну довжину. Якщо довжина рядка більша, ніж максимальна, необхідно відкинути зайві
 // символи, додавши замість них трикрапку. 
@@ -73,6 +75,8 @@ function truncString(str,maxlength){
   }
 }
 console.log(truncString('Hello Alex', 5));
+
+// function truncate(str, maxLength){ return str.length > maxLength ? str.slice(0, maxLength - 3) + "..." : str; } 4) В averadeValue трохи зламана логіка, треба було так function averageWordLength(sentence) { const words = sentence.split(/\s+/); const totalLength = words.reduce((sum, word) => sum + word.length, 0); return words.length ? totalLength / words.length : 0; }
 // 6. Напишіть функцію, яка перевіряє, чи є переданий рядок
 // паліндромом. (split,reverse,join)
 function palindrome(str){
@@ -118,3 +122,5 @@ function sumSimbols(str,num){
   console.log(`Index: ${simbol} , nummer of occurrences: ${simbol.length} `);
 }
 sumSimbols('Alex!!!!','!');
+
+ 
