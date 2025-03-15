@@ -203,3 +203,5 @@ let shapes = [
 let circleCount = shapes.filter(shape => shape instanceof Circle).length;
 
 console.log(`Количество объектов Circle: ${circleCount}`);
+
+
