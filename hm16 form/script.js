@@ -13,5 +13,18 @@
 //     Зверніть увагу: якщо ви все зробили правильно, то ваше сповіщення
 //  має показати значення blues. -->
 
-let newList = document.querySelector('#genres');
-newList.newOption('Класика','classic');
+
+
+let optionSelected = genres.options[genres.selectedIndex];
+console.log( optionSelected.value );
+console.log( optionSelected.text );
+
+let newOption = new Option('Класика','classic');
+//let newOption = new Option('Класика','classic', true);
+genres.append(newOption);
+
+genres.options[2].selected = true;
+// newOption.selected = true;
+
+
+  
