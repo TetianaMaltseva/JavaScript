@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+</head>
+<body>
+ 
+    <script>
+ const arr = [5, 6, 7, 8, 9, 2, 6, 3, -4, 0, -9, -9];
+ const newArr = [];
+
+ const filterArr = (element) => {
+  if(element >= 0){
+    return true;
+  }else{
+    return false
+  }
+ };
+ for( let i = 0; i < arr.length; i++){
+  if(!filterArr(arr[i])){
+    newArr.push(arr[i]);
+  }
+ }
+ console.log(newArr);
+//  arr.forEach((element) => {
+//   if(filterArr(element) === false){
+//     newArr.push(element);
+//   }
+//  });
+ console.log(newArr);
+
+ let arr2 =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+ let filterArr2 = [];
+
+ const myFilter = (element) => element % 2 !== 0;
+ filterArr2 = arr2.filter(myFilter);
+ console.log(filterArr2);
+ 
+    </script>
+</body>
+</html>

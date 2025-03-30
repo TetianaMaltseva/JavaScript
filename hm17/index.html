@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hm17</title>
+</head>
+<body>
+  <ul>
+    <li>Клікніть на div щоб відредагувати.</li>
+    <li>Натискання Enter або втрата фокусу збереже вміст поля введення.</li>
+  </ul>
+    
+     <div id="view" class="view">Текст</div>
+
+
+<!-- ************Вбудована валідація HTML5 -->
+ <!--  ## Вправа 1: Валідація номера телефону ### Завдання Додайте у форму поле
+для введення номера телефону у форматі `+380XXXXXXXXX`.   -->
+
+ <!-- ## Вправа 2: Валідація пароля ### Завдання Створіть поле пароля, яке
+приймає щонайменше 8 символів. -->
+
+ <!-- ## Вправа 3: Валідація URL ### Завдання Додайте у форму поле введення
+веб-сайту, яке перевіряє коректність URL. --> 
+
+
+<div>
+  <input type="tel" pattern="\+380\d{9}">
+  <input type="password" min="8">
+  <input type="url">
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
