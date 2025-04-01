@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+ 
+    <script>
+// function factor(n){
+//   if(n <= 0){
+//     return;
+//   }else{
+//     for(let i = n; i >= 1; i--){
+    
+//     }
+//   }
+// } 
+//  function test(n, callback){
+//   if (n == 0){
+//     console.log('provide value n ');
+//     return;
+//   }
+//   let k = n;
+//   callback(k);
+//  }  
+
+//  console.log(test(5, factor))
+
+function factorial(number){
+  let result = 1;
+  for( let i = 1; i <= number; i++){
+    result *= i;
+  }
+  console.log(`factorial ${number} is ${result}`);
+}
+
+function test(n, callback){
+  if(n <= 0){
+    console.log('invalid number');
+    return;
+  }
+  for(let i = n; i > 0; i--){
+    callback(i);
+  }
+}
+let t_umber = 5;
+test(t_umber, factorial)
+    </script>
+</body>
+</html>
