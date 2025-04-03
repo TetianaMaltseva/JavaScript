@@ -6,27 +6,79 @@
     <title>function</title>
 </head>
 <body>
+  <!-- How to iterate over a callback n times in JavaScript? -->
+<!-- Як виконати повторний виклик n разів у JavaScript? -->
+
+<!-- Given a callback function, we have to iterate over a callback n times. The callback is a
+  function that is passed as an argument. To iterate over the callback function, we have to run 
+  the callback function n time. -->
+<!-- 1. Маючи функцію зворотного виклику, ми повинні повторити зворотний виклик n разів. 
+ Зворотний виклик — це функція, яка передається як аргумент. Щоб виконати ітерацію функції 
+ зворотного виклику, ми повинні запустити функцію зворотного виклику n раз. -->
+
+<!-- Використання рекурсії для повторення функції зворотного виклику n разів.
+По-перше, створіть фактор функції зворотного виклику, яка приймає n як аргумент.
+Факторна функція генерує шаблон довжиною n.
+Створіть тестову функцію, яка приймає функцію зворотного виклику та n.
+Тестова функція перевіряє, чи значення n дорівнює 0, а ні.
+Якщо n дорівнює 0, повертається функція перевірки завершення,
+ інакше викликається функція зворотного виклику, яка друкує шаблон. -->
+
+<!-- Вихід
+01 02 03 04
+01 02 03
+01 02
+01 -->
+
+<!-- 
+Using a loop statement to iterate over the callback. 
+First, we create a callback function factor which generates a factorial of numbers.
+Create a test function with argument n and a callback function.
+Check the value of n if it is invalid terminate if not continue.
+Create for loop with range n.
+On each loop call the callback function which prints the factorial of each number. -->
+
+<!-- Використання оператора циклу для повторення зворотного виклику. 
+Спочатку ми створюємо фактор функції зворотного виклику, яка генерує факторіал чисел.
+Створіть тестову функцію з аргументом n і функцією зворотного виклику.
+Перевірте значення n, якщо воно недійсне, завершіть, якщо не продовжуйте.
+Створіть цикл for із діапазоном n.
+У кожному циклі викликається функція зворотного виклику, яка друкує факториал кожного числа. -->
+
+<!-- !n = n*(n-1)*...*1;  -->
  
     <script>
-// function factor(n){
-//   if(n <= 0){
-//     return;
-//   }else{
-//     for(let i = n; i >= 1; i--){
-    
-//     }
-//   }
-// } 
-//  function test(n, callback){
-//   if (n == 0){
-//     console.log('provide value n ');
-//     return;
-//   }
-//   let k = n;
-//   callback(k);
-//  }  
+      function factor(n) {
+    if (n <= 0) {
+      return;
+    }
 
-//  console.log(test(5, factor))
+    // string to store patterns
+    let str = '';
+    // loop for generate pattern
+    for (let i = 1; i <= n; i++) {
+      str += `0${i} `;
+    }
+    // printing patterns
+    console.log(str);
+
+    // recursion call with decrement by 1
+    factor(n - 1);
+  }
+  function test(n, callback) {
+    if (n == 0) {
+      console.log('please provide value n greater than 0');
+      return;
+    }
+
+    let k = n;
+    //calling callback function
+    callback(k);
+  }
+
+  test(3, factor);
+
+  // ex 2.
 
 function factorial(number){
   let result = 1;

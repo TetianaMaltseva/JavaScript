@@ -6,7 +6,49 @@
     <title>hm18</title>
 </head>
 <body>
+  <form>
+    <label for="phone">Телефон:</label>
+    <input type="tel" id="phone" placeholder="+380XXXXXXXXX" />
+    <button type="submit">Надіслати</button>
+  </form>
+<div style="padding: 25px;"></div>
+	<form>
+	   <label for="comment">Коментар:</label>
+		 <textarea id="comment" maxlength="200"></textarea>
+		 <p id="charCount">0 / 200</p>
+	</form>
 
-    <script src="script.js"></script>
+	<div style="padding: 25px;"></div>
+	 <form>
+		 <input type="checkbox" id="agree" /> Я погоджуюся з умовами
+	    <br />
+		  <button type="submit" id="submitBtn" disabled>Надіслати</button>
+	 </form>
+
+ <div style="padding: 25px;"></div>
+ <form id = "passwordForm">
+	 <label for="password1">Пароль:</label>
+	 <input type="password" id="password1" />
+	
+	 <label for="password2">Повторіть пароль:</label>
+	 <input type="password" id="password2" />
+	
+	 <p id="passwordError" style="color: red"></p>
+	
+	 <button type="submit" id="submitPassword">Надіслати</button>
+	</form>
+
+	<div style="padding: 25px;"></div>
+	<form>
+		<label for="color">Виберіть колір фону:</label>
+		<select id="color2">
+		  <option value="white">Білий</option>
+		  <option value="lightblue">Блакитний</option>
+		  <option value="lightgreen">Зелений</option>
+		  <option value="lightyellow">Жовтий</option>
+		 </select>
+	</form>
+
+<script src="script.js"></script>
 </body>
 </html>
