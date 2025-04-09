@@ -56,19 +56,11 @@
 поле для введення пароля. Якщо користувач вводить менше 6 символів, встанови
 власне повідомлення про помилку. **Рішення:** ```html (setCustomValidity) -->
 <form id="exercise2">
-  <input type="password2" id="password2" required />
+  <input type="password" id="password2" required />
   <button type="submit">Перевірити</button>
 </form>
 <div style="padding: 25px;"></div>
-<script>
-  document.getElementById("password").addEventListener("input", function () {
-    if (this.value.length < 6) {
-      this.setCustomValidity("Пароль має містити мінімум 6 символів!");
-    } else {
-      this.setCustomValidity("");
-    }
-  });
-</script>
+
 
 <!-- ``` --- ## Вправа 5: Використання `reportValidity()` **Завдання:** Створи поле
 введення номера телефону (type="tel"). Додай кнопку, яка при натисканні
@@ -78,30 +70,17 @@
   <button type="button" id="validate">Перевірити</button>
 </form>
 <div style="padding: 25px;"></div>
-<script>
-  document.getElementById("validate").addEventListener("click", function () {
-    document.getElementById("phone").reportValidity();
-  });
-</script>
+
 
 <!-- ``` --- ## Вправа 6: Валідація email-адреси з `validity.typeMismatch`
 **Завдання:** Створи поле для введення email-адреси. Якщо введене значення не
 відповідає формату email, виведи сповіщення. **Рішення:** ```html -->
 <form id="exercise5">
-  <input type="email" id="email" required />
-  <button type="button" id="validate">Перевірити</button>
+  <input type="email" id="email2" required />
+  <button type="button" id="validate2">Перевірити</button>
 </form>
 <div style="padding: 25px;"></div>
-<script>
-  document
-    .getElementById("validate")
-    .addEventListener("click", function (event) {
-      let emailField = document.getElementById("email");
-      if (emailField.validity.typeMismatch) {
-        alert("Будь ласка, введіть коректну email-адресу!");
-      }
-    });
-</script>
+
 
 
     <script src="script.js"></script>
