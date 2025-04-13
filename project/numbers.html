@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+ 
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+ 
+        input {
+            padding: 10px;
+            width: 200px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+ 
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+ 
+        button:hover {
+            background-color: #45a049;
+        }
+ 
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prime Number Checker</h1>
+        <input type="number" id="input" placeholder="Enter a number">
+        <button onclick="cPrime()">Check</button>
+        <p id="result"></p>
+        </div>
+ 
+    <script>
+        
+         function cPrime(){
+            let number = parseInt(document.querySelector('#input').value);
+            let result = document.querySelector('#result');
+            result.textContent = '';
+            result.style.color = ''
+
+            if(isNaN(number) || number <= 1){
+                result.textContent = 'Введите число больше 1';
+                result.style.color = 'red';
+                return
+            }
+
+            let isPrime = true;
+            for(let i =2; i <= Math.sqrt(number); i++){
+                if(number % i === 0){
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if(isPrime) {
+                result.style.color = 'green';
+                result.textContent = `${number} це натуральне число`
+            }else{
+                result.style.color = 'red';
+                result.textContent = `${number} це не натуральне число`  
+            }
+
+         }
+//    let sum = 2.3 + 2.4;
+//    console.log(sum);
+
+//    let sum1 = (2.3 + 2.4).toFixed(2);
+//    console.log(sum1);
+
+//    let sum2 = Math.round((2.3 + 2.4)*100)/100;
+//    console.log(sum2); 
+   
+    </script>
+</body>
+</html>
