@@ -6,7 +6,17 @@
 // має гетер message, який повертає _message,
 // має сетер message, який перед встановленням нового значення виводить у консоль:
 // "Новий запис: <значення>".
-
+let logger = {
+  get message(){
+    return this._message;
+  },
+  set message(value){
+    console.log("Новий запис: ", value);
+  this._message = value;
+  }
+};
+logger.message = 'good';
+console.log(logger.message);
 
 // Вправа 2. Дескриптор аксесора (тільки читання)
 // Створи об'єкт clock, у якого:
@@ -14,9 +24,21 @@
 // повертає поточний час у форматі "HH:MM" (з використанням Date),
 // не з'являється при переборі for...in.
 let clock ={
-  time: 1,
-  
-}
+  country: 'Germany',
+  city: 'Berlin',
+};
+Object.defineProperty(clock, 'time',{
+  get(){
+
+    let now = new Date();
+    let hours = String(now.getHours()).padStart(2, '0');
+    let minutes = String(now.getMinutes()).padStart(2, '0');
+
+    return `${hours}:${minutes}`
+  } 
+})
+console.log(clock.time);
+for(key in clock)console.log(key);
 
 // //*****************************************ТИП ДАНИХ SYMBOL
 // Вправа 3: Створення символів
