@@ -8,15 +8,26 @@
 <body>
  
     <script>
-      function covertStoi(){
-        const a = '123';
-        const b = Number(a);
-      }
-      function covertStoi1(){
-        const a = '123';
-        const b = a * 1;
-      }
-      
+      // function covertStoi(){
+      //   const a = '123';
+      //   const b = Number(a);
+      // }
+      // function covertStoi1(){
+      //   const a = '123';
+      //   const b = a * 1;
+      // }
+
+      let possibleCombinations = (str) => {
+        let combinations = [];
+        for( let i = 0; i < str.length; i++){
+          for(let j = i + 1; j < str.length; j++){
+            combinations.push(str.slice(i, j));
+          }
+        }
+        return combinations;
+      };
+     console.log(possibleCombinations('dog')) ;
+
     </script>
 </body>
 </html>

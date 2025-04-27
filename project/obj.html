@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+</head>
+<body>
+ 
+    <script>
+const a = [
+  ['name','Anna'],
+  ['age',30],
+  ['city','Berlin'],
+];
+// const obj = {};
+
+//  const obj = Object.fromEntries(a);
+
+// a.forEach(([key,value]) => {
+//  obj[key] = value;
+// });
+
+// for(let i = 0; i < a.length; i++){
+//   let[key,value] = a[i];
+//   obj[key] = value;
+// }
+
+// for(let [key, value] of a) {
+//   obj[key] = value;
+// }
+
+// const obj = a.reduce((acc, [key,value]) => {
+//   acc[key] = value;
+//   return acc
+// });
+
+const obj = a.reduce((acc, [key,value]) => ({...acc, [key]: value}) ,{})
+console.log(obj)
+    </script>
+</body>
+</html>
