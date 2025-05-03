@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hm24</title>
+  </head>
+  <body style="text-align: center">
+    <h1 style="color: green">GeeksforGeeks</h1>
+    <p>Type in the textbox and click on the button to count the words</p>
+    <textarea id="inputField" rows="10" cols="60"> </textarea>
+    <br /><br />
+    <button onclick="countWords()">Count Words</button>
+    <br /><br />
+    <p>
+      Word Count:
+      <span id="show">0</span>
+    </p>
+    <script>
+      function countWords() {
+        let text = document.querySelector("#inputField").value;
+
+        // let arr = text.trim().split(' ');
+
+        // let arr = text
+        //   .trim()
+        //   .split(' ')
+        //   .filter((value) => value);
+        // .filter(Boolean);
+
+        // Видаляємо все, крім літер, пробілів та символів нового рядка
+        const cleaned = text.replace(/[^\p{L}\s]/gu, ""); // залишаємо лише літери й пробіли
+
+        // Ділимо за будь-якими пробільними символами (пробіл, таб, новий рядок)
+        const words = cleaned.trim().split(/\s+/);
+
+        // Рахуємо
+        const wordCount = words.filter(Boolean).length;
+
+        console.log(wordCount); // Наприклад: 13
+
+        document.getElementById("show").innerHTML = wordCount;
+      }
+    </script>
+  </body>
+</html>

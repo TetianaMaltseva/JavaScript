@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MapSet</title>
+  </head>
+  <body>
+    <script>
+      //  let users = new Map();
+      //  users.set(1,'Alice');
+      //  users.set(2,'Bob');
+
+      //  let newUserId = 1;
+      //  let newUserName = 'Jhon'
+
+      //  if(!user.has(newUserId)){
+      //   users.set(newUserId, newUserName);
+      //  }
+      //     let capitals = new Map([
+      //       ['Ukraine', 'Kyiv'],
+      //       ['Franse', 'Paris'],
+      //       ['Germany', 'Berlin'],
+      //     ]);
+      //     let reversed = new Map();
+
+      //     for(let item of capitals){
+      //       reversed.set(item[1],item[0]);
+      //     }
+
+      //     for(let [key,value] of capitals){
+      //       reversed.set(value,key);
+      //     }
+      // console.log(reversed);
+
+      // let numners = [1,2,3,2,4,1,5]
+      //  let uniqueNumbers = Array.from(new Set(numners));
+      //  console.log(uniqueNumbers);
+
+      //  let uni = numners.filter((e, i) => x.indexOf(e) === i);
+
+      // let a = [1,2,3,4,4,1];
+      // let b = [3,4,5,6];
+
+      // let sa = new Set(a);
+      // b.filter((value) => sa.has(value));
+      // console.log(sa);
+
+      let word = "balloon";
+      // let s = [...new Set(word)].join('');
+      // console.log(s);
+
+      function areValuesUnique(arr) {
+        return new Set(arr).size === arr.length;
+      }
+    </script>
+  </body>
+</html>
