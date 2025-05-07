@@ -1,43 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>string</title>
-</head>
-<body>
- 
+  </head>
+  <body>
     <script>
- const arr = [5, 6, 7, 8, 9, 2, 6, 3, -4, 0, -9, -9];
- const newArr = [];
+      const arr = [5, 6, 7, 8, 9, 2, 6, 3, -4, 0, -9, -9];
+      const newArr = [];
 
- const filterArr = (element) => {
-  if(element >= 0){
-    return true;
-  }else{
-    return false
-  }
- };
- for( let i = 0; i < arr.length; i++){
-  if(!filterArr(arr[i])){
-    newArr.push(arr[i]);
-  }
- }
- console.log(newArr);
-//  arr.forEach((element) => {
-//   if(filterArr(element) === false){
-//     newArr.push(element);
-//   }
-//  });
- console.log(newArr);
+      const filterArr = (element) => {
+        if (element >= 0) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      for (let i = 0; i < arr.length; i++) {
+        if (!filterArr(arr[i])) {
+          newArr.push(arr[i]);
+        }
+      }
+      console.log(newArr);
+      //  arr.forEach((element) => {
+      //   if(filterArr(element) === false){
+      //     newArr.push(element);
+      //   }
+      //  });
+      console.log(newArr);
 
- let arr2 =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
- let filterArr2 = [];
+      let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      let filterArr2 = [];
 
- const myFilter = (element) => element % 2 !== 0;
- filterArr2 = arr2.filter(myFilter);
- console.log(filterArr2);
- 
+      const myFilter = (element) => element % 2 !== 0;
+      filterArr2 = arr2.filter(myFilter);
+      console.log(filterArr2);
+
+      function getUnigue(arr) {
+        return [...new Set(arr)];
+        //  return Array.from(new Set(arr));
+      }
+
+      function groupByLength(arr) {
+        // let result = {};
+
+        return arr.reduce((acc, word) => {
+          let len = word.length;
+          if (!acc[len]) {
+            acc[len] = [];
+          }
+          acc[len].push(word);
+          return acc;
+
+          // let len2 = word.length;
+          // let value = acc[len] || [];
+          // value.push(word);
+          // acc[len] = value;
+          // return acc;
+        }, {});
+      }
+      let words = ["rfd", "dfgg", "fdrg", "qw", "wsd", "fhggjj"];
+      console.log(groupByLength(words));
+
+      function invert(obj) {
+        let result = {};
+        for (let key in obj) {
+          result[obj[key]] = key;
+        }
+        return result;
+      }
+      console.log(invert({ a: 1, b: 2, c: 3 }));
     </script>
-</body>
+  </body>
 </html>

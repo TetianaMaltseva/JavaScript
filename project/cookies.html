@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cookies</title>
+  </head>
+  <body>
+    <script>
+      // console.log(document.cookie);
+      // const date = new Date();
+      // date.setDate(date.getDate() + 1); // додаємо 1 день
+      // document.cookie = "sessionId=abc123; expires=" + date.toUTCString();
+
+      // document.cookie = "theme=dark; max-age=3600"; // 3600 секунд = 1 година
+
+      // function getCookie(name) {
+      //     const value = document.cookie
+      //         .split('; ')
+      //         .find(row => row.startsWith(name + '='));
+      //     return value ? value.split('=')[1] : null;
+      // }
+
+      // // Приклад використання:
+      // const theme = getCookie('theme');
+      // console.log(theme); // dark
+
+      // document.cookie = "theme=light; max-age=3600";
+
+      // document.cookie = "theme=; max-age=0";
+
+      // document.cookie = "theme=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
+      //   Завдання 1. Створи cookie з ім’ям user і значенням Ivan, яке зберігається протягом 3 днів.
+
+      // Рішення:
+
+      // const date = new Date();
+      // date.setDate(date.getDate() + 3);
+      // document.cookie = "user=Ivan; expires=" + date.toUTCString() + "; path=/";
+      // Завдання 2. Створи cookie theme=dark, яке діє лише 1 годину.
+
+      // Рішення:
+
+      // document.cookie = "theme=dark; max-age=3600; path=/";
+      // Завдання 3. Створи cookie cart=4, яке буде доступне лише за шляхом /shop.
+
+      // Рішення:
+
+      // document.cookie = "cart=4; path=/shop";
+      // Перевірка: відкрити іншу сторінку (наприклад /profile) і переконатися, що цього cookie там немає.
+
+      // Завдання 4. Створи cookie secureTest=true, яке працює лише при HTTPS-з’єднанні.
+
+      // Рішення:
+
+      // document.cookie = "secureTest=true; secure";
+      // Примітка: Якщо ви тестуєте на локальному сервері без HTTPS, цей cookie не буде збережено.
+
+      // Завдання 5. Створи cookie samesiteTest=ok з обмеженням доступу з інших сайтів (захист від CSRF).
+
+      // Рішення:
+
+      // document.cookie = "samesiteTest=ok; SameSite=Strict";
+      // Завдання 6. Напиши функцію setCookie(name, value, days), яка встановлює cookie з
+      //  параметром expires.
+
+      // Рішення:
+
+      // function setCookie(name, value, days) {
+      //   const date = new Date();
+      //   date.setDate(date.getDate() + days);
+      //   document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+      // }
+
+      // setCookie("lang", "en", 7);
+      // Завдання 7. Напиши функцію getCookie(name), яка повертає значення cookie за назвою.
+
+      // Рішення:
+
+      // function getCookie(name) {
+      //   const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      //   return match ? match[2] : null;
+      // }
+
+      // console.log(getCookie("lang")); // en
+      // Завдання 8. Видали cookie lang, якщо воно існує.
+
+      // Рішення:
+
+      // document.cookie = "lang=; max-age=0; path=/";
+      // Завдання 9. Створи cookie sessionToken=abc123, яке:
+
+      // зберігається 1 день
+
+      // доступне на всьому сайті
+
+      // передається тільки через HTTPS
+
+      // працює лише в межах того ж сайту
+
+      // Рішення:
+
+      // const date = new Date();
+      // date.setDate(date.getDate() + 1);
+      // document.cookie = "sessionToken=abc123; expires=" + date.toUTCString() + "; path=/; secure; SameSite=Strict";
+      // Завдання 10. Перевір, які cookies зараз встановлені на сторінці.
+
+      // Рішення:
+
+      // console.log(document.cookie);
+      // Приклад виводу:
+
+      // user=Ivan; theme=dark; lang=en
+
+      // // Приклад використання:
+      // const theme = getCookie('theme');
+      // console.log(theme); // dark
+
+      // document.cookie = "theme=light; max-age=3600";
+
+      // document.cookie = "theme=; max-age=0";
+
+      // document.cookie = "theme=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
+      //   Завдання 1. Створи cookie з ім’ям user і значенням Ivan, яке зберігається протягом 3 днів.
+
+      // Рішення:
+
+      // const date = new Date();
+      // date.setDate(date.getDate() + 3);
+      // document.cookie = "user=Ivan; expires=" + date.toUTCString() + "; path=/";
+      // Завдання 2. Створи cookie theme=dark, яке діє лише 1 годину.
+
+      // Рішення:
+
+      // document.cookie = "theme=dark; max-age=3600; path=/";
+      // Завдання 3. Створи cookie cart=4, яке буде доступне лише за шляхом /shop.
+
+      // Рішення:
+
+      // document.cookie = "cart=4; path=/shop";
+      // Перевірка: відкрити іншу сторінку (наприклад /profile) і переконатися, що цього cookie там немає.
+
+      // Завдання 4. Створи cookie secureTest=true, яке працює лише при HTTPS-з’єднанні.
+
+      // Рішення:
+
+      // document.cookie = "secureTest=true; secure";
+      // Примітка: Якщо ви тестуєте на локальному сервері без HTTPS, цей cookie не буде збережено.
+
+      // Завдання 5. Створи cookie samesiteTest=ok з обмеженням доступу з інших сайтів (захист від CSRF).
+
+      // Рішення:
+
+      // document.cookie = "samesiteTest=ok; SameSite=Strict";
+      // Завдання 6. Напиши функцію setCookie(name, value, days), яка встановлює
+      //  cookie з параметром expires.
+
+      // Рішення:
+
+      // function setCookie(name, value, days) {
+      //   const date = new Date();
+      //   date.setDate(date.getDate() + days);
+      //   document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+      // }
+
+      // setCookie("lang", "en", 7);
+      // Завдання 7. Напиши функцію getCookie(name), яка повертає значення cookie за назвою.
+
+      // Рішення:
+
+      // function getCookie(name) {
+      //   const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      //   return match ? match[2] : null;
+      // }
+
+      // console.log(getCookie("lang")); // en
+      // Завдання 8. Видали cookie lang, якщо воно існує.
+
+      // Рішення:
+
+      // document.cookie = "lang=; max-age=0; path=/";
+      // Завдання 9. Створи cookie sessionToken=abc123, яке:
+
+      // зберігається 1 день
+
+      // доступне на всьому сайті
+
+      // передається тільки через HTTPS
+
+      // працює лише в межах того ж сайту
+
+      // Рішення:
+
+      // const date = new Date();
+      // date.setDate(date.getDate() + 1);
+      // document.cookie = "sessionToken=abc123; expires=" + date.toUTCString() + "; path=/; secure; SameSite=Strict";
+      // Завдання 10. Перевір, які cookies зараз встановлені на сторінці.
+
+      // Рішення:
+
+      // console.log(document.cookie);
+      // Приклад виводу:
+
+      // user=Ivan; theme=dark; lang=en
+    </script>
+  </body>
+</html>
