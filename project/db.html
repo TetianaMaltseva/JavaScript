@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IndexedDB: створення бази</title>
+  </head>
+  <body>
+    <h2>IndexedDB: Створення бази та сховища</h2>
+
+    <script>
+      //creatr db
+      // const request = indexedDB.open("studentsDB", 1);
+
+      // request.onupgradeneeded = function (event) {
+      //   const db = event.target.result;
+
+      // перевірка, чи сховище вже існує (запобігання помилці)
+      //   if (!db.objectStoreNames.contains("students")) {
+      //     db.createObjectStore("students", { keyPath: "id" });
+      //     console.log("Сховище 'students' створено");
+      //   }
+      // };
+
+      // request.onsuccess = function (event) {
+      //   const db = event.target.result;
+      //   console.log("Базу 'studentsDB' відкрито успішно", db);
+      // };
+
+      // request.onerror = function (event) {
+      //   console.error("Помилка відкриття бази:", event.target.error);
+      // };
+
+      //add date
+
+      // const request = indexedDB.open("studentsDB", 1);
+
+      // request.onsuccess = function (event) {
+      //   const db = event.target.result;
+
+      //   const transaction = db.transaction("students", "readwrite");
+      //   const store = transaction.objectStore("students");
+
+      //   const student = {
+      //     id: 1,
+      //     name: "Olga",
+      //     age: 20,
+      //     group: "JS-1",
+      //   };
+
+      //   const addRequest = store.add(student);
+
+      //   addRequest.onsuccess = function () {
+      //     console.log("Студент доданий успішно");
+      //   };
+
+      //   addRequest.onerror = function () {
+      //     console.error("Помилка при додаванні студента");
+      //   };
+      // };
+
+      //get
+      // const request = indexedDB.open("studentsDB", 1);
+
+      // request.onsuccess = function (event) {
+      //   const db = event.target.result;
+
+      //   const transaction = db.transaction("students", "readwrite");
+      //   const store = transaction.objectStore("students");
+      //   const getRequest = store.get(1);
+
+      //   getRequest.onsuccess = function () {
+      //     const student = getRequest.result;
+      //     if (student) {
+      //       console.log("Знайдено:", student.name);
+      //     } else {
+      //       console.log("Студента з таким ID немає");
+      //     }
+      //   };
+      // };
+
+      //PUT
+      // const request = indexedDB.open("studentsDB", 1);
+
+      // request.onsuccess = function (event) {
+      //   const db = event.target.result;
+
+      //   const transaction = db.transaction("students", "readwrite");
+      //   const store = transaction.objectStore("students");
+
+      //   const updateRequest = store.put({
+      //     id: 1,
+      //     name: "Ivan",
+      //     age: 23,
+      //     group: "JS-2",
+      //   });
+
+      //   updateRequest.onsuccess = function () {
+      //     console.log("Студента оновлено успішно");
+      //   };
+
+      //   updateRequest.onerror = function () {
+      //     console.error("Помилка при оновленні студента");
+      //   };
+      // };
+
+      //getAll
+      const request = indexedDB.open("studentsDB", 1);
+
+      request.onsuccess = function (event) {
+        const db = event.target.result;
+
+        const transaction = db.transaction("students", "readwrite");
+        const store = transaction.objectStore("students");
+        const allRequest = store.getAll();
+
+        allRequest.onsuccess = function () {
+          const students = allRequest.result;
+          console.log("Усі студенти:", students);
+        };
+      };
+    </script>
+  </body>
+</html>

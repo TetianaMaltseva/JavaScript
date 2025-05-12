@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>string</title>
-</head>
-<body>
- 
+  </head>
+  <body>
     <script>
-const a = [
-  ['name','Anna'],
-  ['age',30],
-  ['city','Berlin'],
-];
-// const obj = {};
+      const a = [
+        ["name", "Anna"],
+        ["age", 30],
+        ["city", "Berlin"],
+      ];
+      // const obj = {};
 
-//  const obj = Object.fromEntries(a);
+      //  const obj = Object.fromEntries(a);
 
-// a.forEach(([key,value]) => {
-//  obj[key] = value;
-// });
+      // a.forEach(([key,value]) => {
+      //  obj[key] = value;
+      // });
 
-// for(let i = 0; i < a.length; i++){
-//   let[key,value] = a[i];
-//   obj[key] = value;
-// }
+      // for(let i = 0; i < a.length; i++){
+      //   let[key,value] = a[i];
+      //   obj[key] = value;
+      // }
 
-// for(let [key, value] of a) {
-//   obj[key] = value;
-// }
+      // for(let [key, value] of a) {
+      //   obj[key] = value;
+      // }
 
-// const obj = a.reduce((acc, [key,value]) => {
-//   acc[key] = value;
-//   return acc
-// });
+      // const obj = a.reduce((acc, [key,value]) => {
+      //   acc[key] = value;
+      //   return acc
+      // });
 
-const obj = a.reduce((acc, [key,value]) => ({...acc, [key]: value}) ,{})
-console.log(obj)
+      // const obj = a.reduce((acc, [key,value]) => ({...acc, [key]: value}) ,{})
+      // console.log(obj)
+
+      const users = [
+        { name: "Anna", age: 30 },
+        { age: 30, city: "Kiev" },
+      ];
+
+      function mergeUsers(users) {
+        // return users.reduce((acc, obj) => {
+        //   return { ...acc, ...obj };
+        // }, {});
+
+        // return users.reduce(
+        //   (acc, obj) => ({
+        //     ...acc,
+        //     ...obj,
+        //   }),
+        //   {}
+        // );
+
+        // return Object.assign({}, ...users);
+
+        let result = {};
+        for (let user of users) {
+          for (let key of user) {
+            result[key] = user[key];
+          }
+        }
+        return result;
+      }
+      console.log(mergeUsers(users));
     </script>
-</body>
+  </body>
 </html>

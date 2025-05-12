@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hm26</title>
+  </head>
+  <body>
+    <button id="addBtn">Add</button>
+    <ul id="list"></ul>
+
+    <ul id="menu">
+      <li>rttt</li>
+      <li>tttt</li>
+      <li>ttttt</li>
+    </ul>
+    <script>
+      let count = 1;
+      document.getElementById("addBtn").addEventListener("click", function () {
+        const li = document.createElement("li");
+        li.textContent = `El ${count}`;
+        document.getElementById("list").appendChild(li);
+        count++;
+      });
+
+      const menu = document.getElementById("menu");
+
+      menu.addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+          [...menu.children].forEach((item) => item.classList.remove("ative"));
+          event.target.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>

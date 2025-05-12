@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IndexedDB CRUD</title>
+  </head>
+  <body>
+    <h2>IndexedDB: CRUD для студентів</h2>
+    <button onclick="addStudent()">Додати</button>
+    <button onclick="readAllStudents()">Прочитати всіх</button>
+    <button onclick="updateStudent()">Оновити</button>
+    <button onclick="deleteStudent()">Видалити</button>
+
+    <pre id="output"></pre>
+
+    <script>
+      let db;
+
+      const openRequest = indexedDB.open("studentsDB", 1);
+
+      openRequest.onsuccess = function (event) {
+        db = event.target.result;
+        log("Базу відкрито");
+      };
+
+      openRequest.onerror = function () {
+        log("Помилка відкриття бази");
+      };
+
+      openRequest.onupgradeneeded = function (event) {
+        const db = event.target.result;
+        if (!db.objectStoreNames.contains("students")) {
+          db.createObjectStore("students", { keyPath: "id" });
+        }
+      };
+
+      function addStudent() {
+        const tx = db.transaction("students", "readwrite");
+        const store = tx.objectStore("students");
+
+        const student = {
+          id: 1,
+          name: "Olga",
+          age: 20,
+          group: "JS-1",
+        };
+
+        const req = store.add(student);
+        req.onsuccess = () => log("Студент доданий");
+        req.onerror = () => log("Такий ID вже існує");
+      }
+
+      function readAllStudents() {
+        const tx = db.transaction("students", "readonly");
+        const store = tx.objectStore("students");
+
+        const req = store.getAll();
+        req.onsuccess = () => {
+          log("Усі студенти:");
+          log(JSON.stringify(req.result, null, 2));
+        };
+      }
+
+      function updateStudent() {
+        const tx = db.transaction("students", "readwrite");
+        const store = tx.objectStore("students");
+
+        const updatedStudent = {
+          id: 1,
+          name: "Olga Ivanova",
+          age: 21,
+          group: "JS-1",
+        };
+
+        const req = store.put(updatedStudent);
+        req.onsuccess = () => log("Студент оновлений");
+      }
+
+      function deleteStudent() {
+        const tx = db.transaction("students", "readwrite");
+        const store = tx.objectStore("students");
+
+        const req = store.delete(1);
+        req.onsuccess = () => log("Студент видалений");
+      }
+
+      function log(message) {
+        document.getElementById("output").textContent += message + "\n";
+      }
+    </script>
+  </body>
+</html>
