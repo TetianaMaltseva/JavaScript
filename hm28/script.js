@@ -93,12 +93,42 @@ console.log(getDayType(10));
 // Для n = 4 результат:
 // 1
 // 3
-function triangle(n) {}
-console.log(triangle(4));
+function triangle(n) {
+  let current = 1;
+  let rowLength = 1;
+  while (current <= n) {
+    let row = "";
+    let count = 0;
+
+    for (let i = 0; i < rowLength && current <= n; ) {
+      if (current % 2 === 0) {
+        current++;
+        continue;
+      }
+      row += current + " ";
+      current++;
+      i++;
+    }
+    if (row.length > 0) {
+      console.log(row.trim());
+    }
+    rowLength++;
+  }
+}
+triangle(19);
 // Завдання 6 (тема: функції + return):
 // Реалізуй функцію isLeapYear(year):
 // повертає true, якщо рік високосний (ділиться на 4 і не на 100, або на 400)
 // інакше — false
+function isLeapYear(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(isLeapYear(2022));
+console.log(isLeapYear(2024));
 
 // Завдання 7 (тема: функції + замикання):
 // Створи функцію createLimiter(limit), яка повертає іншу функцію increment().
@@ -128,3 +158,4 @@ console.log(triangle(4));
 // повертає кількість цифр у числі n
 // не використовуй перетворення в рядок
 // countDigits(123); // 3
+function countDigits(n) {}
