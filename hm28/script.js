@@ -158,4 +158,13 @@ console.log(isLeapYear(2024));
 // повертає кількість цифр у числі n
 // не використовуй перетворення в рядок
 // countDigits(123); // 3
-function countDigits(n) {}
+function countDigits(n) {
+  n = Math.abs(n);
+  if (n < 10) {
+    return 1;
+  } else {
+    return 1 + countDigits(Math.floor(n / 10));
+  }
+}
+console.log(countDigits(123));
+console.log(countDigits(-1235));
