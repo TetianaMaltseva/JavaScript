@@ -141,17 +141,52 @@ console.log(isLeapYear(2024));
 // inc(); // 2
 // inc(); // 3
 // inc(); // 3
+function createLimiter(limit) {
+  let count = 0;
+  return function inc() {
+    if (count < limit) {
+      count++;
+    }
+    return count;
+  };
+}
+
+const inc = createLimiter(3);
+console.log(inc());
+console.log(inc());
+console.log(inc());
+console.log(inc());
 
 // Завдання 8 (тема: функції + аргументи):
-// Напиши функцію sumOnlyNumbers(), яка приймає будь-яку кількість аргументів і повертає суму тільки числових значень.
+// Напиши функцію sumOnlyNumbers(), яка приймає будь-яку кількість аргументів і повертає
+// суму тільки числових значень.
 // Не використовуй масиви.
 // sumOnlyNumbers(1, "a", true, 4); // 5
-
+function sumOnlyNumbers() {
+  let sum = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    if (typeof arguments[i] === "number") {
+      sum += arguments[i];
+    }
+  }
+  return sum;
+}
+console.log(sumOnlyNumbers(1, "a", true, 4));
 // Завдання 9 (тема: колбек-функції):
 // Реалізуй функцію executeTwice(callback), яка:
 // приймає функцію callback як аргумент
 // викликає її двічі
 // повертає масив із двох результатів
+function executeTwice(callback) {
+  let result1 = callback();
+  let result2 = callback();
+  return [result1, result2];
+}
+function callback() {
+  return Math.floor(Math.random() * 10) + 1;
+}
+let results = executeTwice(callback);
+console.log(results);
 
 // Завдання 10 (тема: рекурсія):
 // Напиши рекурсивну функцію countDigits(n), яка:
