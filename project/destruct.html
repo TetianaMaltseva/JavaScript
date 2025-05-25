@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //     Завдання 1: Деструктуризація об'єкта
+      // Напиши функцію getUserInfo, яка приймає об’єкт користувача й повертає рядок формату:
+      // "{name}, {age} years old"
+      // Якщо властивості name або age відсутні — використовуй "Anonymous" і 0.
+
+      // function getUserInfo(user) {
+      //   const { name = "Anonymous", age = 0 } = user;
+      //   return `${name}, ${age} years old`;
+      // }
+
+      // Фігура
+
+      // Завдання 2: Деструктуризація масиву
+
+      // Напиши функцію getTopTwo, яка приймає масив і повертає масив із двох перших елементів.
+      //  Якщо менше — доповни null.
+      // getTopTwo(["HTML", "CSS", "JS"]); // ["HTML", "CSS"]
+      // getTopTwo(["React"]);             // ["React", null]
+
+      // function getTopTwo(arr) {
+      //   const [first = null, second = null] = arr;
+      //   return [first, second];
+      // }
+
+      // Завдання 3: Spread у масивах
+      // Напиши функцію mergeUnique, яка об'єднує два масиви в один без повторень.
+      // Використай оператор розгортання.
+
+      // function mergeUnique(a, b) {
+      //   return [...new Set([...a, ...b])];
+      // }
+
+      // Завдання 4: Rest у функції
+      // Створи функцію multiplyAll(multiplier, ...numbers), яка:
+      // множить усі передані числа на multiplier
+      // повертає новий масив
+
+      // function multiplyAll(multiplier, ...numbers) {
+      //   return numbers.map(n => n * multiplier);
+      // }
+
+      // Завдання 5: Опціональний ланцюжок
+
+      // Напиши функцію getCity(user), яка повертає user.address.city
+      // Якщо будь-який рівень відсутній — повертає "unknown"
+      // Використай ?..
+      // getCity({ address: { city: "Kyiv" } }); // "Kyiv"
+      // getCity({});                            // "unknown"
+
+      // function getCity(user) {
+      //   return user.address?.city ?? "unknown";
+      // }
+
+      // Завдання 6: Nullish coalescing
+      // Напиши функцію formatInput(input), яка:
+      // повертає input, якщо він не є null або undefined
+      // інакше — "no data"
+      // formatInput("text");    // "text"
+      // formatInput(undefined); // "no data"
+
+      // function formatInput(input) {
+      //   return input ?? "no data";
+      // }
+
+      // Завдання 7: Деструктуризація з перейменуванням
+      // Напиши функцію extractEmail, яка приймає об'єкт:
+      // { userEmail: "olga@example.com", name: "Olga" }
+      // І повертає рядок "Email: olga@example.com"
+      // Використай деструктуризацію з перейменуванням.
+      // extractEmail({ userEmail: "olga@example.com" }); // "Email: olga@example.com"
+
+      // function extractEmail(obj) {
+      //   const { userEmail: email } = obj;
+      //   return `Email: ${email}`;
+      // }
+
+      // Завдання 8: Spread в об'єктах (перезапис)
+      // Є базовий об'єкт:
+      // const base = { role: "user", active: true };
+      // Створи функцію upgradeToAdmin(baseUser), яка повертає новий об'єкт з
+      // тими ж властивостями, але role змінено на "admin".
+      // upgradeToAdmin({ role: "user", active: true });
+      // // { role: "admin", active: true }
+
+      // function upgradeToAdmin(baseUser) {
+      //   return { ...baseUser, role: "admin" };
+      // }
+
+      // Завдання 9: Rest в об'єкті
+      // Напиши функцію withoutName, яка приймає об'єкт { name, ... }
+      // і повертає новий об'єкт без name.
+      // withoutName({ name: "Olga", age: 30, city: "Kyiv" });
+      // // { age: 30, city: "Kyiv" }
+
+      // function withoutName(user) {
+      //   const { name, ...rest } = user;
+      //   return rest;
+      // }
+
+      // Завдання 10: Безпечний виклик методу
+      // Напиши функцію callIfExists(obj), яка:
+      // викликає obj.run() тільки якщо метод існує
+      // нічого не робить, якщо run відсутній
+      // callIfExists({ run() { console.log("Running"); } });
+      // // Виведе: "Running"
+      // callIfExists({});
+      // // нічого не виведе
+
+      // function callIfExists(obj) {
+      //   obj.run?.();
+      // }
+    </script>
+  </body>
+</html>
